@@ -11,13 +11,17 @@ jobs:
     steps:
       - checkout
       - run: npm i
+      - save_cache:
+          key: node_modules
+          paths:
+            - /src/node_modules
       - run:
           name: Lint
           command: npm run lint
   test:
     <<: *docker-node
     steps:
-      - run: pwd
+      - run: ls
       - checkout
       - run: npm i
       - run:
@@ -26,6 +30,7 @@ jobs:
   analyse:
     <<: *docker-node
     steps:
+      - checkout
       - run:
           name: Audit
           command: npm audit
