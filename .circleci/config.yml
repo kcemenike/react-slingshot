@@ -44,6 +44,9 @@ jobs:
       - run:
           name: Fix
           command: npm audit fix
+      - run:
+          name: Update
+          command: npm update
       - checkout
       - save_cache:
           key: node_modules
