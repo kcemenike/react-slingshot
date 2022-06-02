@@ -2,24 +2,24 @@
 version: 2.1
 orbs:
   welcome: circleci/welcome-orb@0.4.1
-docker-default: &docker-node:
+docker-default: &docker-node
   docker:
     - image: circleci/node:14
 jobs:
   build:
-    << : *docker-node
+    <<: *docker-node
     steps:
       - run:
           name: Lint
           command: npm run lint
   test:
-    << : *docker-node
+    <<: *docker-node
     steps:
       - run:
           name: Lint
           command: npm run test
   analyse:
-    << : *docker-node
+    <<: *docker-node
     steps:
       - run:
           name: Lint
