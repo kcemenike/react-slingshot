@@ -18,6 +18,7 @@ jobs:
     <<: *docker-node
     steps:
       - run: pwd
+      - checkout
       - run:
           name: Test
           command: npm run test
