@@ -17,14 +17,15 @@ jobs:
   test:
     <<: *docker-node
     steps:
+      - run: pwd
       - run:
-          name: Lint
+          name: Test
           command: npm run test
   analyse:
     <<: *docker-node
     steps:
       - run:
-          name: Lint
+          name: Audit
           command: npm audit
 workflows:
   sample:
