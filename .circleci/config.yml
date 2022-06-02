@@ -37,6 +37,13 @@ jobs:
       - run:
           name: Audit
           command: npm audit
+  fix:
+    <<: *docker-node
+    steps:
+      - checkout
+      - run:
+          name: Fix
+          command: npm audit fix
 workflows:
   sample:
     jobs:
@@ -47,6 +54,10 @@ workflows:
       - test:
           requires:
             - build
+      - fix:
+          requires:
+            - build
       - analyse:
           requires:
             - test
+            - fix
