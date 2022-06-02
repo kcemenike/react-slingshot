@@ -19,6 +19,7 @@ jobs:
     steps:
       - run: pwd
       - checkout
+      - run: npm i
       - run:
           name: Test
           command: npm run test
