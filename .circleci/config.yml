@@ -9,6 +9,8 @@ jobs:
   build:
     <<: *docker-node
     steps:
+      # - checkout
+      - run: npm i
       - run:
           name: Lint
           command: npm run lint
