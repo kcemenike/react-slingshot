@@ -44,6 +44,11 @@ jobs:
       - run:
           name: Fix
           command: npm audit fix
+      - checkout
+      - save_cache:
+          key: node_modules
+          paths:
+            - /src/node_modules
 workflows:
   sample:
     jobs:
