@@ -23,6 +23,9 @@ jobs:
     steps:
       - run: ls
       - checkout
+      - restore_cache:
+          keys:
+            - node_modules
       - run: npm i
       - run:
           name: Test
