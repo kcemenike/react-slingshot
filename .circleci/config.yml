@@ -28,3 +28,12 @@ workflows:
   sample:
     jobs:
       - welcome/run
+  main:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - analyse:
+          requires:
+            - test
